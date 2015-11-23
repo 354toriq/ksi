@@ -222,12 +222,12 @@ a:before, a:after {
    ========================================================================== */
 
 #headerwrap {
-	background: url(../img/intro-bg.jpg) no-repeat center top;
-	padding-top: 200px;
+/*	background: url(../img/intro-bg.jpg) no-repeat center top;
+	padding-top: 200px;*/
 	text-align: center;
 	background-attachment: relative;
 	background-position: center center;
-	min-height: 650px;
+/*	min-height: 650px;*/
 	width: 100%;
 	-webkit-background-size: 100%;
 	-moz-background-size: 100%;
@@ -239,6 +239,7 @@ a:before, a:after {
 	background-size: cover;
 	padding-bottom: 100px;
 	margin-top: 70px;
+        margin-bottom:  -50px;
 }
 #headerwrap h1 {
 	color: #fff;

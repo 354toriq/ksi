@@ -122,6 +122,12 @@
 				include 'detail-matpel.php';
 				}
 				?>
+                                <?php 
+				if(isset($_GET['pelajari-modul']))
+				{
+				include 'pelajari-modul.php';
+				}
+				?>
 				<?php
 					if(isset($_GET['hapus-modul']))
 					{

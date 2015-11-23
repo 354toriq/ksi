@@ -67,7 +67,7 @@
 					<tr>
 					<th width='5'>ID Modul</th>
 					<th width='50'>Judul Modul</th>
-					<th width='50'>Video</th>
+					
 					<th>Tanggal Upload</th>
 					<th width='150'>Aksi</th>
 					</tr>
@@ -83,9 +83,9 @@
 								echo "<tr>";
 								echo "<th>$mod->id_modul</th>";
 								echo "<th>$mod->judul</th>";
-								echo "<th>$mod->video</th>";
+								
 								echo "<th>$mod->tgl_upload</th>";
-								echo "<th><a href='../modul/$mod->file' class='btn btn-success'>Unduh</a>&nbsp;<a href='?pelajari-modul=$idmod' class='btn btn-warning'> Modul</a>";
+								echo "<th><a href='../modul/$mod->file' class='btn btn-success'>Unduh Modul </a>&nbsp;<a href='?pelajari-modul=$idmod' class='btn btn-primary'>Pelajari & Kerjakan Modul </a>";
 								echo "</th>";
 								
 								echo "</tr>";

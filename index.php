@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>KSI - Kaiyisah Smart Informatika</title>
+        <title>PKBM KSI - Kaiyisah Smart Informatika</title>
 
         <!-- Bootstrap core CSS -->
         <link href="front/css/bootstrap.css" rel="stylesheet">
@@ -18,6 +18,18 @@
         <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
         <script src="front/js/jquery.min.js"></script>
         <script type="text/javascript" src="front/js/modernizr.custom.js"></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+        <style>
+            .carousel-inner > .item > img,
+            .carousel-inner > .item > a > img {
+                width: 100%;
+                margin: auto;
+            }
+        </style>    
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,16 +38,20 @@
                 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
             <![endif]-->
 
+<link rel="icon" href="front/img/baru/smalllogo.png" sizes="20x16" type="image/png">
     </head>
 
     <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
         <div id="navbar-main"> 
             <!-- Fixed navbar -->
             <div class="navbar navbar-default navbar-fixed-top">
-                <div class="container">
+                
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <a class="navbar-brand" href="#home">KSI - Kaiyisah Smart Informatika</a> </div>
+                        <a class="navbar-brand hidden-xs" href="#home">&nbsp; PKBM KSI - Kaiyisah Smart Informatika</a> 
+                        <a class="navbar-brand hidden-lg hidden-md hidden-sm " href="#home" style="font-size:14px;">PKBM KSI - Kaiyisah Smart Informatika</a> </div>
+
+
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 
@@ -46,33 +62,100 @@
                         </ul>
                     </div>
                     <!--/.nav-collapse --> 
-                </div>
+                
             </div>
         </div>
 
         <!-- ==== HEADERWRAP ==== -->
-        <div id="home">
+        <div id="home" >
             <div id="headerwrap" name="home">
                 <header class="clearfix">
-                    <h1>Welcome</h1>
-                    <p>PKBM KAIYISAH Smart Informatika Terdepan Dalam Mencetak Generasi Yang Profesional,Terampil & Mandiri </p>
-                    <a href="#portfolio" class="smoothScroll btn btn-lg">See Our Works</a> </header>
+                    <!--                    <h1>Welcome</h1>
+                                        <p>PKBM KAIYISAH Smart Informatika Terdepan Dalam Mencetak Generasi Yang Profesional,Terampil & Mandiri </p>
+                                        <a href="#portfolio" class="smoothScroll btn btn-lg">See Our Works</a> </header>-->
+                    <div id="myCarousel" class="carousel slide img-responsive" data-ride="carousel" style="width: 100; height:50; margin-top: 0px ; margin-left:0px; margin-right:0px; margin-bottom:0px">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators" >
+                            <li data-target="#myCarousel" data-slide-to="0" active></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                            <li data-target="#myCarousel" data-slide-to="3"></li>
+                            <li data-target="#myCarousel" data-slide-to="4" ></li>
+                            <li data-target="#myCarousel" data-slide-to="5" ></li>
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+
+
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active ">
+                                <img src="front/img/baru/1.png" alt="Chania" class="img img-responsive">
+                                <div class="carousel-caption" >
+
+                                </div>
+                            </div>
+                            <div class="item ">
+                                <img src="front/img/baru/5.png" alt="Flower" class="img img-responsive">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+
+
+                            <div class="item">
+                                <img src="front/img/baru/2.png" alt="Chania" class="img img-responsive">
+                                <div class="carousel-caption" >
+
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img src="front/img/baru/3.png" alt="Flower" class="img img-responsive">
+                                <div class="carousel-caption" >
+
+                                </div>
+                            </div>
+
+                            <div class="item">
+                                <img src="front/img/baru/4.png" alt="Flower" class="img img-responsive">
+                                <div class="carousel-caption">
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
             </div>
+
         </div>
         <!-- /headerwrap --> 
 
         <!-- ==== ABOUT ==== -->
-        <div id="about" name="tentangkami">
+        <div id="about" name="tentangkami" >
             <div class="container">
                 <div class="row white">
                     <center>
                         <p><b>Pusat Kegiatan Belajar Masyarakat</b></p>
-                        <img class="" src="front/img/yak.jpg" align="" style="width:200px;height:150px;">
+                        <img class="img img-responsive" src="front/img/yak.jpg" align="" style="width:200px;height:150px;">
+                        <!DOCTYPE html>
+
                         <h2>Yayasan Afham Kaiyisah</h2>
                     </center>
                     <hr>
 
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
 
 
                         <h3><b>Penanggung Jawab :</b></h3>
@@ -97,10 +180,10 @@
                             <li>Kepemilikan		:	Yayasan Afham Kaiyisah</li>
                             <li>No. Ijin	 	:	3953</li>
                             <li>Tanggal			:	06 Juli 2012</li>
-                            <li>Pemberi Ijin	:	Kepala Suku Dinas Pendidiakn Menengah Kota Administrasi Jakarta Barat Drs. H. Slamet Widodo</li>
+                            <li>Pemberi Ijin	:	Kepala Suku Dinas Pendidikan Menengah Kota Administrasi Jakarta Barat Drs. H. Slamet Widodo</li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-12 col-lg-6 col-sm-12">
                         <h3><b>Pusat Kegiatan Belajar Masyarakat</b></h3>
                         <ul>
                             <li>NILEM				:	31.2.02.0001.4.0.0006</li>
@@ -143,7 +226,7 @@
                         <p> 021-98829908</p>
                     </div>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.884829626395!2d106.72952900000001!3d-6.146167599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7fbd5024901%3A0x36f4ae1e933c2617!2sJl.+Fajar+Baru+2+No.2%2C+Cengkareng%2C+Kota+Jakarta+Barat%2C+Daerah+Khusus+Ibukota+Jakarta+11730!5e0!3m2!1sid!2sid!4v1441042853253" width="900" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                <iframe class="img-responsive" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.884829626395!2d106.72952900000001!3d-6.146167599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7fbd5024901%3A0x36f4ae1e933c2617!2sJl.+Fajar+Baru+2+No.2%2C+Cengkareng%2C+Kota+Jakarta+Barat%2C+Daerah+Khusus+Ibukota+Jakarta+11730!5e0!3m2!1sid!2sid!4v1441042853253" width="900" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                 <hr>
 
                 <!-- row --> 

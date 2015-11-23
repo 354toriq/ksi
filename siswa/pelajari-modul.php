@@ -26,15 +26,27 @@
 	<div class="panel-footer">
 	<a href="?detail=<?=$modul->id_matpel?>" class="btn btn-warning">Kembali</a>&nbsp;
 	<?php 
-	$ceknilai = mysql_query("select * from nilai_soal where id_modul = '$idmodul' and id_siswa = '$siswa->id_siswa'");
-	if($ceknilai) {
+        $ceksoalmodul = mysql_query("select * from soal_modul where id_modul = '$idmodul'");
+        $jumlahsoalmodul = mysql_num_rows($ceksoalmodul);
+        if($jumlahsoalmodul < 1)
+        {
+        ?>
+        <button class="btn btn-danger" disabled>Soal Tidak Tersedia</button>
+        <?php
+        }
+        else {
+//        echo     "select * from nilai_soal where id_modul = '$idmodul' and id_siswa = '$siswa->id_siswa'";
+	$nilai = mysql_query("select * from nilai_soal where id_modul = '$idmodul' and id_siswa = '$siswa->id_siswa'");
+        $ceknilai = mysql_num_rows($nilai);
+        $getnilai = mysql_fetch_object($nilai);
+	if($ceknilai >= 1    ) {
 		?>
-	<a href="?nilai-modul=<?=$idmodul?>" class="btn btn-success">Lihat Nilai Modul Ini</a>
+	<a href="?nilai-modul=<?=$getnilai->id_nilai?>" class="btn btn-success">Lihat Nilai Modul Ini</a>
 		<?php
 	} else {
 	?>
 	<a href="?soal-modul=<?=$idmodul?>" class="btn btn-success">Latihan Soal</a>
-	<?php } ?>
+        <?php } } ?>
 	</div>
 	</div>
 		

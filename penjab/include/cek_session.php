@@ -8,7 +8,7 @@ echo "<script type='text/javascript'>window.location.href='masuk_penjab.php';</s
 else
 {
 include 'database.php';
-$id			=	$_SESSION['penjab'];
+$id		=	$_SESSION['penjab'];
 $query		=	mysql_query("select * from penjab where id_penjab = '$id'");
 $penjab		=	mysql_fetch_object($query);
 $queryskl	=	mysql_query("select * from sekolah where id_penjab = '$id'");
