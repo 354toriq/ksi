@@ -36,8 +36,12 @@
 				
 					
 				<?php		
-				$queryabsensi		=	mysql_query("select * from absensi where id_sekolah = '$sekolah->id_sekolah'order by id_absensi desc");
-				
+				$queryabsensi                   =	mysql_query("select * from absensi where id_sekolah = '$sekolah->id_sekolah'order by id_absensi desc");
+				$datenow                        =       mysql_query("Select now() as now");
+                                $getdatenow                     =       mysql_fetch_object($datenow);
+                                $timenow                        =       $getdatenow->now;                                
+                                $time                           =       substr($timenow,0,9);
+                                
 				while ($abs			=	mysql_fetch_object($queryabsensi))
 				{
 					echo "
@@ -46,26 +50,35 @@
 					<div class='panel panel-primary'>
 					<div class='panel-heading'><strong>$abs->judul</strong></div>
 					<div class='panel-body'>
-					$abs->judul <br>
+					<b>$abs->keterangan</b> <br><br>
 					Tgl Mulai : $abs->tgl_mulai<br>
 					Tgl Berakhir : $abs->tgl_akhir<br>
 					</div>
 					<div class='panel-footer'>";
-					$sqlcek = "select * from `detail_absensi` where id_absensi = '$abs->id_absensi' and id_siswa = '$siswa->id_siswa'";
-					
+					$sqlcek = "select * from `detail_absensi` where id_absensi = '$abs->id_absensi' and id_siswa = '$siswa->id_siswa'";					
 					$cek = mysql_query($sqlcek);
-					$countcek = mysql_num_rows($cek);
-					
+					$countcek = mysql_num_rows($cek);                                        
+					$datediff   =   strtotime($timenow)-strtotime($abs->tgl_akhir);
+                                        $selisih    =   floor($datediff/(60*60*24));                                        
 					if($countcek > 0) {
 					echo "
-					<a class='btn btn-warning btn-lg' disabled>Sudah Absen</a>
+					<a class='btn btn-warning btn-lg btn-block' disabled>Sudah Absen</a>
 					</form>
 					</div>
 					</div></div>";
 					}
-					else{
+                                        else if($countcek == 0 AND $selisih > 0){
+                                        echo "
+                                        <a class='btn btn-danger btn-lg btn-block' disabled>Expired</a>
+					</form>
+					</div>
+					</div></div>
+                                                ";
+                                        }
+					else
+                                        {
 						echo "
-					<a href='?absen=$abs->id_absensi' class='btn btn-success btn-lg'>Absen</a>
+					<a href='?absen=$abs->id_absensi' class='btn btn-success btn-lg btn-block'>Absen</a>
 					</form>
 					</div>
 					</div></div>";
@@ -80,20 +93,20 @@
 						$idsiswa 	= $siswa->id_siswa;
 						$idabsensi 	= $_GET['absen'];
 						$status 	= 'H';
-						$querytgl			=	mysql_query("select now() as tgl_now");
-						$gettgl				=	mysql_fetch_object($querytgl);
-						$tgl				= 	$gettgl->tgl_now;
-						
-						$sql 		= mysql_query("insert into detail_absensi values('','$idabsensi','$idsiswa','$status','$tgl')");
+						$querytgl	=	mysql_query("select now() as tgl_now");
+						$gettgl		=	mysql_fetch_object($querytgl);
+						$tgl		= 	$gettgl->tgl_now;
+						$sql             =       mysql_query("insert into detail_absensi values('','$idabsensi','$idsiswa','$status','$tgl')");
 						if($sql) 
 						{		
 						?>
+                                                <meta http-equiv="refresh" content= "1;URL=?lihat-absensi"/>
 						<div class="alert alert-success" role="alert">
 						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						<span class="sr-only"></span>
 						Absensi sudah ditambahkan
 						</div>
-						<meta http-equiv="refresh" content= "1;URL=?lihat-absensi"/>
+						
 						<?php
 				}
 				}

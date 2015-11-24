@@ -24,7 +24,7 @@
 						</blockquote>
 						</div>
 						<div class="col-md-4">
-						<img src="logo-perusahaan/<?=$getlowongan->logo;?>" style="width:150px; height:100px;" align="right" class="img img-thumbnail">
+						<img src="../img/profil-employer/<?=$getlowongan->foto;?>" style="width:150px; height:100px;" align="right" class="img img-thumbnail">
 						</div>
 						</div>
 						

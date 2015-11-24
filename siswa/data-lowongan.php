@@ -38,7 +38,7 @@
 				<div class="table-responsive">
 				<div class="table-responsive">
 					
-					<table id="table_id" class="display" border='0'>
+					<table id="table_id" class="display table-bordered" border='0'>
 					<thead>
 					<tr>
 					<th>ID</th>
@@ -48,14 +48,18 @@
 					<th>Employer</th>
 					<th>Tgl.Posting</th>
 					<th>Tgl.Tutup</th>
+                                        <th>Status</th>
 					<th width='200'>Aksi</th>
 					</tr>
 					</thead>
 					<tbody>
 					<?php
-					
-						$querylow		=	mysql_query("select * from lowongan where status = 'Terbit'");
-						while ($low		=	mysql_fetch_object($querylow))
+                                                $datenow                        =       mysql_query("Select now() as now");
+                                                $getdatenow                     =       mysql_fetch_object($datenow);
+                                                $timenow                        =       $getdatenow->now;                                
+                                                $time                           =       substr($timenow,0,9);
+						$querylow                       =	mysql_query("select * from lowongan where status = 'Terbit'");
+						while ($low                     =	mysql_fetch_object($querylow))
 						{		
 								$idlowongan	=	$low->id_lowongan;
 								$idemp		=	$low->id_employer;
@@ -71,7 +75,6 @@
 								$querypsh		= 	mysql_query("select * from perusahaan where id_perusahaan = '$emp->id_perusahaan'");
 								$psh			=	mysql_fetch_object($querypsh);
 								
-								
 								echo "<th>$psh->nama_perusahaan - $emp->nama</th>";
 								
 								/*$querymod		= 	mysql_query("select * from modul where id_matpel = '$idmatpel'");
@@ -79,7 +82,18 @@
 								
 								echo "<th>$low->tgl_posting</th>";
 								echo "<th>$low->tgl_tutup</th>";
-								echo "<th><a href='?detail-lowongan=$idlowongan' class='btn btn-primary'>Detail</a>&nbsp;";
+                                                                $datediff               =       strtotime($time)-strtotime($low->tgl_tutup);
+                                                                
+                                                                $selisih                =       floor($datediff/(60*60*24));    
+                                                                
+                                                                if($selisih > 0) {
+                                                                echo "<th><div class='label label-danger'>Expired</div></th>";
+                                                                }
+                                                                else if($selisih < 0){
+                                                                echo "<th><div class='label label-success'>Open</div></th>";
+                                                                }
+                                                                
+                                                                echo "<th><a href='?detail-lowongan=$idlowongan' class='btn btn-primary'>Detail</a>&nbsp;";
 								
 								echo "</tr>";
 								
